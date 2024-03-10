@@ -1,0 +1,39 @@
+.todo-list__header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+  &__link {
+    display: flex;
+    justify-content: right;
+    margin: 4px 0 10px;
+    font-style: italic;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+mat-list-item {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+
+  .todo-list__lite-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span{
+      flex:1;
+
+      &.completed{
+        text-decoration: line-through;
+      }
+
+    }
+  }
+}

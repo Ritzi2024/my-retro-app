@@ -1,0 +1,66 @@
+{
+  "profile": {
+    "name": "Ritu Roy"
+  },
+  "todos": [
+    {
+      "title": "Name",
+      "description": "Described lorem ipsum",
+      "star": false,
+      "category": "DAILY",
+      "tasks": [
+        {
+          "title": "task 12",
+          "id": "1"
+        },
+        {
+          "title": "task 22",
+          "id": "2"
+        },
+        {
+          "title": "task11",
+          "id": "3"
+        },
+        {
+          "title": "2321",
+          "id": ""
+        }
+      ],
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "title": "Name 2",
+      "completed": true,
+      "description": "Described lorem ipsum 2",
+      "updated": "2021-01-20"
+    }
+  ],
+  "dashboardCounts": [
+    {
+      "title": "daily",
+      "count": 10,
+      "activeCount": 5
+    },
+    {
+      "title": "weekly",
+      "count": 7,
+      "activeCount": 5
+    },
+    {
+      "title": "monthly",
+      "count": 7,
+      "activeCount": 5
+    },
+    {
+      "title": "yearly",
+      "count": 7,
+      "activeCount": 5
+    },
+    {
+      "title": "life",
+      "count": 17,
+      "activeCount": 15
+    }
+  ]
+}

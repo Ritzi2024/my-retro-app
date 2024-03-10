@@ -1,0 +1,17 @@
+<ng-container>
+  <div class="echarts">
+    <div class="echarts__header">
+      <span class="echarts__header__title">
+        {{title}}
+      </span>
+    </div>
+    <container-element [ngSwitch]="type">
+      <app-line-chart *ngSwitchCase="ChartType.LINE" [height]="height" [data]="data"></app-line-chart>
+      <app-pie-chart *ngSwitchCase="ChartType.PIE" [height]="height" [data]="data"></app-pie-chart>
+      <app-mix-line-bar-stack-chart *ngSwitchCase="ChartType.MIX_BAR_LINE_STACK" [height]="height" [data]="data"></app-mix-line-bar-stack-chart>
+      <ng-template *ngSwitchDefault>
+        NEED CHART TYPE
+      </ng-template>
+    </container-element>
+  </div>
+</ng-container>

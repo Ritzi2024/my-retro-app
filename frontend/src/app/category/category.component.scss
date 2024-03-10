@@ -1,0 +1,34 @@
+.mat-list-item {
+  border: 1px solid #eee;
+  padding: 8px 8px 0 8px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-progress-bar {
+  height: 5px;
+  border-radius: 5px;
+  width: 100%;
+
+  &.Finance {
+    background-color: red;
+  }
+
+  &.Health {
+    background-color: yellow;
+  }
+
+  &.Professional {
+    background-color: blue;
+  }
+
+  &.Random {
+    background-color: green;
+  }
+}

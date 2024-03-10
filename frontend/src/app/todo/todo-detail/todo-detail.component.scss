@@ -1,0 +1,21 @@
+section.form {
+  max-width: 600px;
+  margin: auto;
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .form-action-btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px;
+  }
+
+  .action-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

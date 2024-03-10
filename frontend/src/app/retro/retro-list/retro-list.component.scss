@@ -1,0 +1,19 @@
+.retro-list__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+
+  &__action-count {
+    padding-left: 8px;
+    font-size: 12px;
+    font-style: italic;
+    color: chocolate;
+  }
+
+  &__left{
+    display: flex;
+    align-items: center;
+  }
+}

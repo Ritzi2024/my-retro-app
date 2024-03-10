@@ -1,0 +1,29 @@
+mat-card {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+
+  mat-card-content {
+    font-style: italic;
+    color: green;
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  &:hover {
+    border: 1px solid #eee;
+    box-shadow: 8px 8px 2px 1px rgba(0, 0, 240, .1);
+    cursor: pointer;
+  }
+}
+
+::ng-deep .mat-badge-medium .mat-badge-content {
+  width: fit-content;
+  border-radius: 5px;
+  padding: 2px;
+  font-size: 11px;
+}
+
+.mdc-tooltip_surface {
+  white-space: pre-line;
+}

@@ -1,0 +1,29 @@
+<ng-template *ngIf="!item; else elseBlock"></ng-template>
+<ng-template #elseBlock>
+  <mat-card matBadge="{{item?.activeCount}}/ {{item?.count}}" matBadgePosition="before" matBadgeColor="accent"
+     #tooltip="matTooltip"
+    [matTooltip]="toolTipText" matTooltipPosition="right"
+    aria-tooltip="Button that displays and hides a tooltip triggered by other buttons">
+    <mat-card-content>
+      {{item?.title}}
+    </mat-card-content>
+  </mat-card>
+
+</ng-template>
+
+<!-- <ng-template *ngIf="!item; else elseBlock"></ng-template>
+<ng-template #elseBlock>
+  <mat-card matBadge="{{item?.activeCount}}/ {{item?.count}}" matBadgePosition="before" matBadgeColor="accent">
+    <mat-card-content (onmouseover)="showTooltip = true" (onmouseout)="showTooltip = false">
+      {{item?.title}}
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-content>
+      <div>
+        <div> Total todos - {{item?.count}}</div>
+        <div> Completed todos - {{(item?.count || 0) - (item?.activeCount || 0)}}</div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</ng-template> -->

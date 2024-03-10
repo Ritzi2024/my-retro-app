@@ -1,0 +1,24 @@
+mat-card {
+  margin: 16px 32px;
+}
+
+.chart-wrapper {
+  display: flex;
+  width: 100%;
+
+  &__chart {
+    width: 50%;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .chart-wrapper {
+    flex-direction: column;
+
+    app-echarts {
+      width: 100%;
+    }
+  }
+
+}

@@ -1,0 +1,90 @@
+<div class="todo-list__base">
+  <div class="todo-list__header">
+    <button class="todo-list__header__link" mat-raised-button color="accent" [routerLink]="['/todo']">All Todos</button>
+    <button [style.marginLeft.px]="6" class="todo-list__header__link" mat-raised-button color="accent" [routerLink]="['/todo/', 1, 'new']">New</button>
+
+    <!-- <div class="todo-list__header__link" [routerLink]="['/todo']">
+      <mat-icon>checklist</mat-icon>
+      <span [style.marginLeft.px]="6">All Todos</span>
+    </div> -->
+    <!-- <div class="todo-list__header__link" [routerLink]="['/todo/', 1, 'new']">
+      <mat-icon>add</mat-icon>
+      <span [style.marginLeft.px]="6">New</span>
+    </div> -->
+  </div>
+  <ng-container *ngIf="
+  {
+    activeTodos: activeTodos$ | async,
+    completedTodos: completedTodos$ | async
+  } as todos">
+    <mat-accordion class="example-headers-align">
+      <ng-container *ngIf="todos.activeTodos && todos.activeTodos.length > 0">
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Actives
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <mat-list>
+            <mat-list-item *ngFor="let todo of todos.activeTodos; let i = index">
+              <div class="todo-list__lite-item" matListItemTitle [routerLink]="['/todo/', todo.criteria, todo._id]">
+                <span>{{todo.title}} <mat-icon matListItemIcon *ngIf="todo.star">star</mat-icon></span>
+                <div class="todo-list_actions">
+                  <app-action-button type="button">
+                    <ng-container #customContent>
+                      <button mat-icon-button color="accent" aria-label="Action Button"
+                        type="button" title="Delete" (click)="onDelete($event, todo)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                      <button mat-icon-button color="accent" aria-label="Action Button"
+                        type="button" title="Mark as complete" (click)="onMarkComplete($event, todo)">
+                        <mat-icon>add_task</mat-icon>
+                      </button>
+                    </ng-container>
+                  </app-action-button>
+                </div>
+              </div>
+              <div matListItemLine>{{todo.description}}</div>
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+      </ng-container>
+      <ng-container *ngIf="todos.completedTodos && todos.completedTodos.length > 0">
+        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Completed
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <mat-list>
+            <mat-list-item *ngFor="let todo of todos.completedTodos; let i = index" [routerLink]="['/todo/', todo.criteria, todo._id]">
+              <div class="todo-list__lite-item" matListItemTitle [routerLink]="['/todo/', todo.criteria, todo._id]">
+                <span class="completed">{{todo.title}} <mat-icon matListItemIcon *ngIf="todo.star">star</mat-icon></span>
+                <div class="todo-list_actions">
+                  <app-action-button type="button">
+                    <ng-container #customContent>
+                      <button mat-icon-button color="accent" aria-label="Action Button"
+                        type="button" title="Delete" (click)="onDelete($event, todo)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </ng-container>
+                  </app-action-button>
+                </div>
+              </div>
+              <div matListItemLine>{{todo.description}}</div>
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+      </ng-container>
+
+    </mat-accordion>
+    <ng-template [ngIf]="(todos.activeTodos?.length === 0 && todos.completedTodos?.length === 0)">
+      <div class="no-data-wrapper">
+        <p>No todo found </p>
+        <button mat-raised-button color="accent" [routerLink]="['/todo/', 1, 'new']">Add a new Todo</button>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>

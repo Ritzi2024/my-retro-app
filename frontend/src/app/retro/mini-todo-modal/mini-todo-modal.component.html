@@ -1,0 +1,6 @@
+<div *ngIf="fetchTodo$ | async as todo; else loading">
+  {{todo.title}}
+</div>
+<ng-template #loading>
+  Loading...
+</ng-template>

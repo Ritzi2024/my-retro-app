@@ -1,0 +1,23 @@
+.action-button__wrapper {
+  position: relative;
+
+  &-sheet {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    right: 0px;
+    top: -20px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover > &{
+    &-sheet {
+      display: block;
+      opacity: 1;
+      right: 40px;
+      visibility: visible;
+
+    }
+  }
+}
+

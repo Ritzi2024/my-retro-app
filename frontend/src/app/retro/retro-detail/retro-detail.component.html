@@ -1,0 +1,40 @@
+<div class="retro-details">
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <app-mini-todo-modal [id]=selectedTaskId [title]="selectedTaskTitle"></app-mini-todo-modal>
+  </mat-drawer>
+  <div class="retro-form">
+    <form [formGroup]="form" (ngSubmit)="saveForm()" (keydown.enter)="$event.preventDefault()">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <!-- <mat-form-field class="example-form-field" appearance="outline" [style.width]="'100%'">
+              <mat-label>Let's try to zoom out a bit and think about today :)</mat-label>
+              <input matInput type="text" formControlName="title">
+            </mat-form-field> -->
+            <div>Let's try to zoom out a bit and think about today :)</div>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="details">
+            <app-retro-detail-card title="What went well!" [list]="goodList" [tag]="RETRO.GOOD" [formElement]="good"
+              (onClick)="onClickHandler($event)" (onItemAdd)="onEnter($event, RETRO.GOOD)"></app-retro-detail-card>
+
+            <app-retro-detail-card title="What we could have done better" [list]="okList" [tag]="RETRO.OK"
+              [formElement]="ok" (onClick)="onClickHandler($event)" (onItemAdd)="onEnter($event, RETRO.OK)"></app-retro-detail-card>
+          </div>
+          <div class="action">
+            <app-retro-detail-card title="Action items" [list]="actionList" [tag]="RETRO.ACTIONS" [formElement]="action"
+              (onClick)="onClickHandler($event)" (onItemAdd)="onEnter($event, RETRO.ACTIONS)"></app-retro-detail-card>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <div class="action-footer">
+        <button mat-button color="primary" type="submit" [disabled]="!goodList.length || !okList.length">Submit</button>
+        <button mat-button color="accent" type="reset" [disabled]="!form.dirty">Reset</button>
+
+      </div>
+    </form>
+  </div>
+</mat-drawer-container>
+</div>

@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-content>
+    <!-- <mat-card-header>
+      Total Todos {{todos}}
+    </mat-card-header> -->
+    <mat-card-content>
+      <div class="chart-wrapper">
+        <div *ngIf="(dataPerCategory$ | async) as data" class="chart-wrapper__chart">
+          <app-echarts [type]="ChartType.PIE" [data]="data" [height]=200
+            title="Todos per Category"></app-echarts>
+        </div>
+        <div *ngIf="(dataPerDay$ | async) as data"  class="chart-wrapper__chart">
+          <app-echarts [type]="ChartType.MIX_BAR_LINE_STACK" [data]="data" [height]=200
+          title="Active/Completed todos per day"></app-echarts>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card-content>
+</mat-card>

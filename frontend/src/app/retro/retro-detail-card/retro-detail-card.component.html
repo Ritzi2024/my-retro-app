@@ -1,0 +1,30 @@
+<!-- <mat-card>
+  <mat-card-header>
+    <mat-card-title>{{title}} </mat-card-title>
+  </mat-card-header>
+  <mat-card-content> -->
+<mat-form-field appearance="outline" [style.width]="'100%'">
+  <mat-label>{{title}}</mat-label>
+  <input matInput [id]="RETRO[tag]" (keyup.enter)="onItemAdd.emit($event)" [formControlName]="tag">
+  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+</mat-form-field>
+<div *ngIf="formElement?.invalid && (formElement?.dirty || formElement?.touched) && list.length===0"
+  class="alert alert-danger">
+  <div *ngIf="formElement?.errors?.['required']">This is required.</div>
+  <div *ngIf="formElement?.errors?.['maxlength']">
+    It must be at less than 50 characters long.
+  </div>
+</div>
+<mat-list role="list" [ngClass]="{
+      'list--good': RETRO.GOOD === tag,
+      'list--ok': RETRO.OK === tag,
+      'list--actions': RETRO.ACTIONS === tag
+    }">
+  <mat-list-item role="listitem" *ngFor="let item of list; index as i">
+    <app-retro-detail-item [index]="i" [item]="item" [tag]="tag"
+      (onClick)="onClick.emit($event)"></app-retro-detail-item>
+  </mat-list-item>
+</mat-list>
+<p *ngIf="list.length === 0">N/A</p>
+<!-- </mat-card-content>
+</mat-card> -->

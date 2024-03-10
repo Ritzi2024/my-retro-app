@@ -1,0 +1,36 @@
+.example-container {
+  min-height: 80vh;
+  margin-top: 45px;
+
+  .example-sidenav {
+    width: 20%;
+    position: fixed;
+    top: 45px;
+
+    mat-list-item:hover {
+      border: 1px solid #eee;
+      box-shadow: 4px 4px 2px 1px #eee;
+      cursor: pointer;
+      background-color: aliceblue;
+    }
+
+
+    .nav-list-item {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.base {
+  max-width: 60%;
+  margin: 16px auto;
+  padding: 16px;
+  border: 1px solid #eee;
+
+}
+@media (max-width: 600px) {
+.base{
+  max-width: 100%;
+}
+}

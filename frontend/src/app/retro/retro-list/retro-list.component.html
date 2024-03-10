@@ -1,0 +1,11 @@
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let retro of retros$ | async" [routerLink]="['/retros/', retro._id]">
+    <div class="retro-list__wrapper">
+      <div class="retro-list__wrapper__left">
+        <div class="retro-list__wrapper__title">{{retro.title}}</div>
+        <span class="retro-list__wrapper__action-count">({{retro.actions.length}} Actions)</span>
+      </div>
+      <div class="retro-list__wrapper__date">{{retro.date | date}}</div>
+    </div>
+  </mat-list-item>
+</mat-list>

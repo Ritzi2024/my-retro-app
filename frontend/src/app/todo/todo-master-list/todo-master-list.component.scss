@@ -1,0 +1,24 @@
+mat-expansion-panel {
+  margin-bottom: 10px;
+
+  mat-list-item {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+
+    .todo-master-list__lite-item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      span.completed{
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  mat-panel-title span:hover{
+    text-decoration: underline;
+  }
+}

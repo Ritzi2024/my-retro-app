@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 6px;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  position: fixed;
+
+  top: 0;
+  width: 99%;
+  z-index: 10;
+  background: #fff;
+
+  .add-new-menu {
+    margin-right: 16px;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+}

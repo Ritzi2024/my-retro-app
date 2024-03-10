@@ -1,0 +1,37 @@
+<div class="todo-master-list">
+  <ng-container *ngIf="todos$ | async as todosPerDay">
+    <ng-container *ngIf="todosPerDay.length > 0">
+      <mat-expansion-panel *ngFor="let tItem of todosPerDay">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span [routerLink]="['/todo/', tItem._id | date: 'shortDate']" (click)="$event.stopPropagation()">{{tItem._id | date}}</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-list>
+          <mat-list-item *ngFor="let todo of tItem.todos; let i = index">
+            <div class="todo-master-list__lite-item" matListItemTitle
+              [routerLink]="['/todo/', todo.criteria, todo._id]">
+              <span [ngClass]="{'completed': todo.completed}">{{todo.title}} <mat-icon matListItemIcon *ngIf="todo.star">star</mat-icon></span>
+              <div class="todo-master-list_actions">
+                <app-action-button type="button">
+                  <ng-container #customContent>
+                    <button mat-icon-button color="accent" aria-label="Action Button"
+                      type="button" title="Delete" (click)="onDelete($event, i)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button color="accent" aria-label="Action Button"
+                      type="button" title="Mark as complete" (click)="onMarkComplete($event, i)">
+                      <mat-icon>add_task</mat-icon>
+                    </button>
+                  </ng-container>
+                </app-action-button>
+              </div>
+            </div>
+            <div matListItemLine *ngIf="todo.description">{{todo.description}}</div>
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+    </ng-container>
+  </ng-container>
+</div>

@@ -1,0 +1,17 @@
+<span (mouseout)="showSheet=false" class="action-button__wrapper" [ngClass]="{'show-sheet': showSheet}">
+  <button mat-icon-button color="accent" aria-label="Action Button" (mouseover)="showSheet = true" type="button">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <div class="action-button__wrapper-sheet">
+    <ng-container *ngIf="!hasCustomContent">
+      <button mat-icon-button *ngFor="let btn of btns" color="accent" aria-label="Action Button" type="button"
+        [title]="btn.title" (click)="btn.click && btn.click($event, btn)">
+        <mat-icon>{{btn.icon || 'menu'}}</mat-icon>
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="hasCustomContent">
+      <ng-content></ng-content>
+    </ng-container>
+  </div>
+</span>

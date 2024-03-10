@@ -1,0 +1,14 @@
+<h3>Categories</h3>
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let category of categories">
+  <div class="category-item">
+    <div class="category-label">
+      {{category.title}}
+    </div>
+    <div class="category-count">
+      {{category.todoCount}}
+    </div>
+  </div>
+  <p class="category-progress-bar {{category.title}}" [ngStyle]="{'width': (category.todoCount/totalCount)*100/totalCount}"></p>
+  </mat-list-item>
+</mat-list>

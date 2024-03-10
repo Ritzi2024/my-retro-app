@@ -1,0 +1,67 @@
+<section class="form" *ngIf="form">
+  <form [formGroup]="form" (ngSubmit)="saveForm()" (keydown.enter)="$event.preventDefault()">
+    <h3>Todo</h3>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" />
+      <mat-error *ngIf="this.form.controls['title'].hasError('required')">
+        Title is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+      <mat-error *ngIf="this.form.controls['description'].hasError('required')">
+        Description is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <mat-label>Criteria</mat-label>
+      <mat-select formControlName="criteria">
+        <mat-option *ngFor="let criteria of criterias" [value]="criteria[1]">{{criteria[0]}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="this.form.controls['criteria'].hasError('required')">
+        Criteria is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <mat-label>Criteria</mat-label>
+      <mat-select formControlName="category">
+        <mat-option *ngFor="let category of categories" [value]="category[1]">{{category[0]}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="this.form.controls['category'].hasError('required')">
+        Category is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+
+    <hr>
+    <div class="form-action-btns">
+      <div>Actions</div>
+      <button [matBadge]="tasks.length" matBadgePosition="after" matBadgeColor="accent" matBadgeOverlap="false" mat-raised-button color="warn" (click)="addTask()" type="button">Add actions</button>
+    </div>
+    <ng-container formArrayName="tasks">
+      <div *ngFor="let skill of tasks; let taskIndex=index;">
+        <ng-container [formGroupName]="taskIndex">
+          <mat-form-field appearance="fill">
+            <mat-label>Actions/Tasks</mat-label>
+            <input matInput formControlName="title" />
+          </mat-form-field>
+        </ng-container>
+      </div>
+    </ng-container>
+    <br>
+    <div class="action-footer">
+      <button mat-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+      <button mat-button color="accent" type="reset" [disabled]="!form.dirty">Reset</button>
+
+    </div>
+  </form>
+</section>

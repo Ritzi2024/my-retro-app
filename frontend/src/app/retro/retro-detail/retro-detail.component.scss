@@ -1,0 +1,25 @@
+.action-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin: 16px 0 0;
+}
+
+.details {
+  display: flex;
+  min-height: 200px;
+  padding: 16px 8px;
+
+  app-retro-detail-card{
+    flex:1;
+    margin: 0 4px;
+  }
+
+  .action {
+    margin: 8px 0;
+  }
+
+}
+::ng-deep .retro-details .mat-drawer-content{
+  height: auto;
+  overflow: hidden;
+}

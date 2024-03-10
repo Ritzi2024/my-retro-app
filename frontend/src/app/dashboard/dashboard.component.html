@@ -1,0 +1,18 @@
+<h2>Statistics</h2>
+<app-statistics />
+<section class="dashboard-cards">
+  <mat-grid-list cols="2" rowHeight="fit" gutterSize="8px" [style.height]="'250px'">
+    <mat-grid-tile *ngFor="let item of dashboardCard$ | async" [routerLink]="['/todo/', item.title]">
+      <app-dashboard-count-card [item]="item" [style.width]="'100%'" [style.height]="'100%'" ></app-dashboard-count-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <!-- <mat-grid-list cols="1" rowHeight="fit" gutterSize="8px" [style.height]="'60px'">
+    <mat-grid-tile *ngFor="let item of lastItems$ | async">
+      <mat-card [style.width]="'100%'">
+        <mat-card-content>
+          {{item.title}} {{item.activeCount}}/ {{item.count}}
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list> -->
+</section>

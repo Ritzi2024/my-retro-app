@@ -1,0 +1,34 @@
+<div class="example-sidenav-content">
+  <app-header />
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <mat-list role="list">
+        <mat-list-item role="listitem" [routerLink]="['/']">
+          <div class="nav-list-item"><mat-icon>dashboard</mat-icon> <span [style.marginLeft.px]="6">Dashboard</span></div>
+        </mat-list-item>
+
+        <mat-list-item role="listitem" [routerLink]="['/todo/', 0]">
+          <div class="nav-list-item"><mat-icon>checklist</mat-icon> <span [style.marginLeft.px]="6">Today -
+            Notes</span></div>
+        </mat-list-item>
+
+        <mat-list-item role="listitem" [routerLink]="['/retro/', 'today']">
+          <div class="nav-list-item"><mat-icon>meeting_room</mat-icon> <span [style.marginLeft.px]="6">Today -
+            Retro</span></div>
+        </mat-list-item>
+
+        <mat-list-item role="listitem" [routerLink]="['/retro/']">
+          <div class="nav-list-item"><mat-icon>groups</mat-icon> <span [style.marginLeft.px]="6">Retros</span></div>
+        </mat-list-item>
+
+        <mat-list-item role="listitem" [routerLink]="['/categories/']">
+          <div class="nav-list-item"><mat-icon>category</mat-icon> <span [style.marginLeft.px]="6">Categories</span></div>
+        </mat-list-item>
+      </mat-list>
+    </mat-drawer>
+    <div class="base">
+      <router-outlet />
+    </div>
+  </mat-drawer-container>
+  <app-footer />
+</div>

@@ -1,0 +1,17 @@
+<section class="header">
+  <div class="header__left">
+    <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon" (click)="toggleNavMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="title">{{pageTitle$ | async}}</span>
+  </div>
+  <div class="header__right">
+    <button mat-button [matMenuTriggerFor]="menu" class="add-new-menu">Add</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="addNewTodo">Todo</button>
+      <button mat-menu-item (click)="addNewCriteria">Criteria</button>
+    </mat-menu>
+    <mat-slide-toggle [checked]="showCompleted" (change)="onShowCompletedChange($event)">Show
+      completed</mat-slide-toggle>
+  </div>
+</section>
