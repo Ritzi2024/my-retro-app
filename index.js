@@ -54,9 +54,9 @@ async function startServer() {
     //     res.sendFile(path.resolve(__dirname, "frontend", "src", "index.html"));
     // })
     app.use("/", express.static("frontend/dist/my-retro-app"));
-    // app.get('*', function(req,res) {
-    //     res.sendFile(path.resolve("frontend/dist/my-retro-app/index.html"));
-    // });
+    app.get('*', function(req,res) {
+        res.sendFile(path.resolve("frontend/dist/my-retro-app/index.html"));
+    });
     await new Promise((resolve) => httpServer.listen(PORT, resolve));
 }
 
