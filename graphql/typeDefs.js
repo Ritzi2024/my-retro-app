@@ -1,4 +1,5 @@
-const { gql } = require('apollo-server');
+// const { gql } = require('apollo-server-express');
+import gql from "graphql-tag";
 
 const typeDefs = gql`
     type TodoCount {

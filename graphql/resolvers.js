@@ -1,7 +1,9 @@
 // const {} = require("apollo-server")
 // const Task = require("../models/Task")
-const Todo = require("../models/Todo")
-const Retro = require("../models/Retro")
+// const Todo = require("../models/Todo")
+// const Retro = require("../models/Retro")
+import Todo from "../models/Todo";
+import Retro from "../models/Retro";
 
 module.exports = {
     Query: {
